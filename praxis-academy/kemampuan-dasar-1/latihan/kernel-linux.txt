@@ -1,0 +1,34 @@
+Sebuah kernel sistem operasi tidak bisa dicontoh dan dibutuhkan untuk menjalankan sebuah komputer. Program dapat langsung dijalankan secara langsung di dalam sebuah mesin (contohnya adalah CMOS Setup) sehingga para pembuat program tersebut membuat program tanpa adanya dukungan dari sistem operasi atau hardware abstraction. Cara kerja seperti ini, adalah cara kerja yang digunakan pada zaman awal-awal dikembangkannya komputer (pada sekitar tahun 1950). Kerugian dari diterapkannya metode ini adalah pengguna harus melakukan reset ulang komputer tersebut dan memuatkan program lainnya untuk berpindah program, dari satu program ke program lainnya. Selanjutnya, para pembuat program tersebut membuat beberapa komponen program yang sengaja ditinggalkan di dalam komputer, seperti halnya loader atau debugger, atau dimuat dari dalam ROM (Read-Only Memory). Seiring dengan perkembangan zaman komputer yang mengalami akselerasi yang signifikan, metode ini selanjutnya membentuk apa yang disebut dengan kernel sistem operasi.
+
+Selanjutnya, para arsitek sistem operasi mengembangkan kernel sistem operasi yang pada akhirnya terbagi menjadi empat bagian yang secara desain berbeda, sebagai berikut:
+
+Kernel monolitik. Kernel monolitik mengintegrasikan banyak fungsi di dalam kernel dan menyediakan lapisan abstraksi perangkat keras secara penuh terhadap perangkat keras yang berada di bawah sistem operasi.
+Mikrokernel. Mikrokernel menyediakan sedikit saja dari abstraksi perangkat keras dan menggunakan aplikasi yang berjalan di atasnya—yang disebut dengan server—untuk melakukan beberapa fungsionalitas lainnya.
+Kernel hibrida. Kernel hibrida adalah pendekatan desain microkernel yang dimodifikasi. Pada hybrid kernel, terdapat beberapa tambahan kode di dalam ruangan kernel untuk meningkatkan performanya.
+Exokernel. Exokernel menyediakan hardware abstraction secara minimal, sehingga program dapat mengakses hardware secara langsung. Dalam pendekatan desain exokernel, library yang dimiliki oleh sistem operasi dapat melakukan abstraksi yang mirip dengan abstraksi yang dilakukan dalam desain monolithic kernel.
+
+Meskipun jika setiap modul memiliki layanan operasi-operasi tersebut terpisah dari modul utama, integrasi kode yang terjadi di dalam monolithic kernel sangatlah kuat, dan karena semua modul berjalan di dalam address space yang sama, sebuah bug dalam salah satu modul dapat merusak keseluruhan sintegrasi komponen internal yang sangat kuat tersebut justru akan mengizinkan fitur-fitur yang dimiliki oleh sistem yang berada di bawahnya dieksploitasi secara efektif, sehingga membuat sistem operasi dengan monolithic kernel sangatlah efisien—meskipun sangat sulit dalam pembuatannya.
+
+Pada sistem operasi modern yang menggunakan monolithic kernel, seperti halnya Linux, FreeBSD, Solaris, dan Microsoft Windows, dapat memuat modul-modul yang dapat dieksekusi pada saat kernel tersebut dijalankan sehingga mengizinkan ekstensi terhadap kemampuan kernel sesuai kebutuhan, dan tentu saja dapat membantu menjaga agar kode yang berjalan di dalam ruangan kernel (kernel-space) seminim mungkin.
+
+Di bawah ini ada beberapa sistem operasi yang menggunakan Monolithic kernel:
+
+Kernel sistem operasi UNIX tradisional, seperti halnya kernel dari sistem operasi UNIX keluarga BSD (NetBSD, BSD/I, FreeBSD, dan lainnya).
+Kernel sistem operasi GNU/Linux, Linux.
+Kernel sistem operasi Windows (versi 1.x hingga 4.x; kecuali Windows NT).
+Mikrokernel
+Pendekatan mikrokernel berisi sebuah abstraksi yang sederhana terhadap hardware, dengan sekumpulan primitif atau system call yang dapat digunakan untuk membuat sebuah sistem operasi agar dapat berjalan, dengan layanan-layanan seperti manajemen thread, komunikasi antar address space, dan komunikasi antar proses. Layanan-layanan lainnya, yang biasanya disediakan oleh kernel, seperti halnya dukungan jaringan, pada pendekatan microkernel justru diimplementasikan di dalam ruangan pengguna (user-space), dan disebut dengan server.
+
+Server atau disebut sebagai peladen adalah sebuah program, seperti halnya program lainnya. Server dapat mengizinkan sistem operasi agar dapat dimodifikasi hanya dengan menjalankan program atau menghentikannya. Sebagai contoh, untuk sebuah mesin yang kecil tanpa dukungan jaringan, server jaringan (istilah server di sini tidak dimaksudkan sebagai komputer pusat pengatur jaringan) tidak perlu dijalankan. Pada sistem operasi tradisional yang menggunakan monolithic kernel, hal ini dapat mengakibatkan pengguna harus melakukan rekompilasi terhadap kernel, yang tentu saja sulit untuk dilakukan oleh pengguna biasa yang awam.
+
+Dalam teorinya, sistem operasi yang menggunakan microkernel disebut jauh lebih stabil dibandingkan dengan monolithic kernel, karena sebuah server yang gagal bekerja, tidak akan menyebabkan kernel menjadi tidak dapat berjalan, dan server tersebut akan dihentikan oleh kernel utama. Akan tetapi, dalam praktiknya, bagian dari system state dapat hilang oleh server yang gagal bekerja tersebut, dan biasanya untuk melakukan proses eksekusi aplikasi pun menjadi sulit, atau bahkan untuk menjalankan server-server lainnya.
+
+Sistem operasi yang menggunakan microkernel umumnya secara dramatis memiliki kinerja di bawah kinerja sistem operasi yang menggunakan monolithic kernel. Hal ini disebabkan oleh adanya overhead yang terjadi akibat proses input/output dalam kernel yang ditujukan untuk mengganti konteks (context switch) untuk memindahkan data antara aplikasi dan server.
+
+Beberapa sistem operasi yang menggunakan microkernel:
+
+IBM AIX, sebuah versi UNIX dari IBM
+Amoeba, sebuah kernel yang dikembangkan untuk tujuan edukasi
+Kernel Mach, yang digunakan di dalam sistem operasi GNU/Hurd, NexTSTEP, OPENSTEP, dan Mac OS/X
+Minix, kernel yang dikembangkan oleh Andrew Tanenbaum untuk tujuan edukasi
+Symbian OS, sebuah sistem operasi yang populer digunakan pada hand phone, handheld device, embedded device, dan PDA Phone.

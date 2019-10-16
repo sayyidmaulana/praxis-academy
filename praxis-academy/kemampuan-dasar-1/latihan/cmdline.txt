@@ -1,0 +1,7 @@
+1. open /Applications/Safari.app/
+- Adalah script untuk menjalankan suatu aplikasi dengan command line
+2. pbcopy dan pbpaste
+- adalah script untuk menyalin sebuah script dan menaruhnya ke direktori lain yang di inginkan
+3. mdfind
+- adalah sortcut untuk mencari file dengan pengalamatan tiap tiap direktorinya
+
