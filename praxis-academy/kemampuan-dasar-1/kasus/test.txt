@@ -1,0 +1,7 @@
+PING espn.com (13.35.8.5): 56 data bytes
+64 bytes from 13.35.8.5: icmp_seq=0 ttl=243 time=161.540 ms
+64 bytes from 13.35.8.5: icmp_seq=1 ttl=243 time=167.531 ms
+
+--- espn.com ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 161.540/164.536/167.531/2.995 ms

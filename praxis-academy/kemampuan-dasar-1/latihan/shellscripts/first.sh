@@ -1,0 +1,3 @@
+a='Berdoalah'
+
+echo $a
