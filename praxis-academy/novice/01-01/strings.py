@@ -1,0 +1,5 @@
+print('spam eggs')
+print('doesn\'t')
+print('yes')
+print('\"yes,\" they said')
+print('"Isn\'t," they said')
