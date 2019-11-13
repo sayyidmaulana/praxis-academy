@@ -2,7 +2,7 @@ import MySQLdb as mdb
 import sys
 
 try:
-    con = mdb.connect('localhost', 'admin', '', 'testDB')
+    con = mdb.connect('localhost', 'root', 'invalid', 'testDB')
     cur = con.cursor()
     cur.execute("SELECT VERSION()")
     ver = cur.fetchone()
